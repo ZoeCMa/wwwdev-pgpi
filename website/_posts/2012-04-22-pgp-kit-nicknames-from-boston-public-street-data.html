@@ -1,0 +1,32 @@
+---
+layout: post
+title: PGP Kit Nicknames from Boston Public Street Data
+date: 2012-04-22 23:55:57.000000000 -04:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- PGP
+tags: []
+meta:
+  _edit_last: '20718800'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1457633238;}
+author: Mad Price Ball
+login: mpball
+email: mpball@gmail.com
+display_name: Mad Price Ball
+first_name: Mad
+last_name: Ball
+permalink: "/2012/04/22/pgp-kit-nicknames-from-boston-public-street-data/"
+---
+<p>Since PGP participants are geographically diverse, our sample collection methods often involve mailing sample collection kits to participants. Participants are asked to then claim the kit they receive as belonging to them (which kit is mailed to each participant is random, not assigned). When participants claim kits, they use the "kit nickname". Kit nicknames were also created to facilitate kit assembly. It is very difficult to check that a random ID string matches for all the tubes or swabs packed into a kit -- it's <em>much</em> easier to check that the kit nicknames all agree. Every time I assemble kits I find myself thankful for this innovation.</p>
+<p>A random selection of nicknames that have already been used: "Brainard", "Patterson", "Crestway", and "Thetford". Kit nicknames aren't published on the website, we consider them semi-private: an added layer distancing the publicly shared kit ID from a participant's name and private identity.</p>
+<p>Where did these names come from? Boston street names! If you check Google Maps you'll find that Boston contains "Brainard Street", "Patterson Way", "Crestway Road" and "Thetford Avenue". These came from <a href="http://www.mass.gov/mgis/ftpeotroads.htm">public map data shared by the state of Massachusetts</a>. I got the names thanks to my friend, <a href="http://crschmidt.net/">Chris Schmidt</a>, who has worked closely with open mapping projects and software over the years.<sup>1</sup> I asked him about it thinking that street names tend to be fairly recognizable, readable &amp; writable, and were unlikely to contain anything considered "inappropriate".</p>
+<p>Boston gave us a little over 3,000 names and we were running low, so I revisited the page and downloaded data for all of Massachusetts, getting over 17,500 names (~14,500 of which were new). Afterwards, I looked at the names a bit and noticed something funny -- there's definitely some spelling errors in there, I noticed "Meadowowbrook Avenue" and "Jenniffer Road". It looks like the public data isn't perfect! The nicknames are all in the system, spelling errors included, so... if you receive a kit with something that looks like a spelling error, don't try to correct the spelling when claiming it. Just type it exactly as you see it, even if it looks funny!</p>
+<hr />
+<p><small><br />
+<sup>1</sup>To generate the Boston kit nicknames, I ran the following (per Chris's instructions):<br />
+<code>ogrinfo eotroads_35.shp -al | grep STREET_NAM | sort | uniq &gt; streets.txt</code><br />
+</small></p>

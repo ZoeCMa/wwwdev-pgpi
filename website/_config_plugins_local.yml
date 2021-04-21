@@ -1,0 +1,10 @@
+plugins:
+  # - jekyll-admin
+  - jekyll-include-cache
+  # - jekyll-feed
+  - github-pages
+  # - jekyll-picture-tag
+  - jekyll-redirect-from
+  # - jekyll-seo-tag
+  # - jekyll-sitemap
+  - jekyll-titles-from-headings

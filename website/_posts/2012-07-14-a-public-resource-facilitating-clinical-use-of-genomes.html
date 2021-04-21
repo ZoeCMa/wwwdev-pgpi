@@ -1,0 +1,74 @@
+---
+layout: post
+title: A Public Resource Facilitating Clinical Use of Genomes
+date: 2012-07-14 12:15:26.000000000 -04:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: ["Uncategorized"]
+tags: []
+meta:
+  _edit_last: '20718800'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1380294597;}
+author: Mad Price Ball
+login: mpball
+email: mpball@gmail.com
+display_name: Mad Price Ball
+first_name: Mad
+last_name: Ball
+permalink: "/2012/07/14/a-public-resource-facilitating-clinical-use-of-genomes/"
+---
+<p>I’m proud to announce the open access publication of the first major research paper for the <a href="http://www.personalgenomes.org/">Personal Genome Project</a>, published as an Inaugural Article in the Proceedings of the National Academy of Sciences: <a href="http://www.pnas.org/content/early/2012/07/12/1201904109.full.pdf+html">“A Public Resource Facilitating the Clinical Use of Genomes” by Ball, Thakuria, Zaranek, et al.</a></p>
+<p>This paper ties together several related stories in the PGP’s research. It is an introduction to the PGP participant data as a public resource, it discusses some of our experiences with the pilot PGP-10 genomes, and it details our development of <a href="http://evidence.personalgenomes.org/">GET-Evidence</a> in response to these experiences.</p>
+<p><strong>PGP participant data</strong></p>
+<p>Many reading this post already know it: the PGP has an exciting group of participants who have volunteered to make some highly personal data public for the sake of research. Our paper reviews the innovative open consent method that made this possible -- by publicly sharing <a href="http://www.personalgenomes.org/consent/">our human subjects research protocols</a>, we hope to encourage other projects to adopt similar methods for publicly shared genomes and other re-identifiable research data. We highlight the many participants who have demonstrated their commitment by publicly sharing data from electronic health records and describe the PGP-10 genome data we have released.</p>
+<p><strong>Experiences with the pilot PGP-10 genomes</strong></p>
+<p>As we release genome data publicly we are also returning that data to participants -- and, to provide participants with some understanding of what they are making public, we try to give an interpretation of their genome data. (Albeit a very rudimentary, tentative interpretation which almost certainly contains gaps and errors.) Thus, genome interpretation has become one of the core areas the PGP has focused on. The field is in its infancy though, and so far whole genome interpretation efforts by other groups have focused on discovering new disease-causing variants in people believed to have genetic disorders. Whole genomes have been effective for discovering new disease-causing variants, but most PGP participants (and most people!) aren’t believed to have serious undiscovered diseases. What happens when you interpret genomes of presumed-healthy people?</p>
+<p>What happened was that we found several rare variants predicting diseases our participants didn’t have. Sometimes these were scary! The variant <a href="http://evidence.personalgenomes.org/MYL2-A13T">MYL2-A13T</a> in PGP6 (hu04FD18, Stephen Pinker) was predicted to cause hypertrophic cardiomyopathy. The variant <a href="http://evidence.personalgenomes.org/SCN5A-G615E">SCN5A-G615E</a> in PGP9 (hu034DB1, Rosalynn Gill) was predicted to cause long QT syndrome. Both of these are late onset diseases that the participant could be unaware of, and could cause sudden death.</p>
+<div style="padding-bottom:20px;" align="center">
+<p><strong>Some variants predicting severe effects in the PGP-10</strong></p>
+<table border="1" cellpadding="5">
+<tbody>
+<tr>
+<th>Participant</th>
+<th>Variant</th>
+<th>Putative effect</th>
+</tr>
+<tr>
+<td>PGP5 (hu9385BA)</td>
+<td><a href="http://evidence.personalgenomes.org/PKD1-R4276W">PKD1-R4276W</a></td>
+<td><a href="http://en.wikipedia.org/wiki/Autosomal_dominant_polycystic_kidney">Autosomal dominant polycystic kidney disease</a></td>
+</tr>
+<tr>
+<td>PGP6 (hu04FD18)</td>
+<td><a href="http://evidence.personalgenomes.org/MYL2-A13T">MYL2-A13T</a></td>
+<td><a href="http://en.wikipedia.org/wiki/Hypertrophic_cardiomyopathy">Hypertrophic cardiomyopathy</a></td>
+</tr>
+<tr>
+<td>PGP9 (hu034DB1)</td>
+<td><a href="http://evidence.personalgenomes.org/SCN5A-G615E">SCN5A-G615E</a></td>
+<td><a href="http://en.wikipedia.org/wiki/Long_QT_syndrome">Long QT syndrome</a></td>
+</tr>
+<tr>
+<td>PGP10 (hu604D39)</td>
+<td><a href="http://evidence.personalgenomes.org/PKD2-S804N">PKD2-S804N</a></td>
+<td><a href="http://en.wikipedia.org/wiki/Autosomal_dominant_polycystic_kidney">Autosomal dominant polycystic kidney disease</a></td>
+</tr>
+<tr>
+<td>PGP10 (hu604D39)</td>
+<td><a href="http://evidence.personalgenomes.org/RHO-G51A">RHO-G51A</a></td>
+<td><a href="http://en.wikipedia.org/wiki/Retinitis_pigmentosa">Autosomal dominant retinitis pigmentosa</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These predictions couldn't all be correct; the PGP-10 couldn’t possibly have all of these diseases. In the process of interpreting these genomes and reviewing genetic variants, we developed a system for reviewing variants that critically examines the evidence for the variant -- not merely how <em>bad</em> the putative effect is, but how strong the <em>evidence</em> is supporting that hypothesis.</p>
+<p><strong>GET-Evidence: a system for personal genome interpretation</strong></p>
+<p>To facilitate the process of genome interpretation, we have created the Genome-Environment-Trait Evidence (GET-Evidence) system. Genome analysis is facilitated by GET-Evidence in a two step process: variants are prioritized for review, and then the review of a variant is recorded and used to create a <a href="http://evidence.personalgenomes.org/genomes">genome report</a>.</p>
+<p>Prioritizing variants for review combines two reasons that one might want to pay special attention to a variant: the existence of published information associating the variant with an effect, and a computational prediction that the variant is disruptive and more likely to cause disease. As a result, the system combines interpretation based on existing knowledge with the potential for discovery of new disease-causing variants.</p>
+<p>Variant interpretation then occurs through variant pages which gather numerous resources assisting the review process: variant frequency, computational predictions, and links to external databases. An editor can then add information to the variant’s page, including: the variant’s effect, inheritance pattern, links to relevant articles (through Pubmed IDs), and summaries of the variant’s effect. Most importantly, scores can be entered for the variant in a series of categories related to evidence and clinical effect. These scores allow for the automatic sorting and filtering of variants -- once entered, a variant is considered “sufficiently evaluated” and can be used to automatically produce genome reports.</p>
+<p>In keeping with the public sharing of genome and trait data, variant interpretations in GET-Evidence are freely shared as public domain under a <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. GET-Evidence is a “peer production” model where all users are able to edit variants -- by allowing others to edit, mistakes can be easily corrected, updates in understanding based on new literature can be applied more rapidly, and consensus can form as multiple editors combine their knowledge and perspectives.</p>
+<p><strong>A public resource</strong></p>
+<p>We’re thrilled to have this paper published, formally introducing the PGP as a resource for researchers. We believe publicly shared data are invaluable for research and a key component of the scientific method. We also hope that GET-Evidence and our experiences with genome interpretation help others in the development of methods for genome interpretation. In publicly sharing data, the PGP has adopted a bold new method for human subjects research: an educated cohort consenting to the unforeseeable risks involved and a highly participatory ongoing relationship. A big thanks goes out not only to the coauthors on this paper but also to our many participants, for making this dream of a public resource a reality.</p>

@@ -1,0 +1,49 @@
+---
+layout: blog
+class: blog
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline"><a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a></h2>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+    {%- if page.author -%}
+      {%- assign page_author = page.author | downcase -%}
+        {%- for author in site.authors -%}
+          {%- if author.name == page.author or author.name contains page.author -%}
+            {%- assign author_url = author.url -%}
+          {%- endif -%}
+        {%- endfor -%}
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name"><a href="{{ author_url| relative_url }}">{{ page.author | escape }}</a></span></span>
+    {%- endif -%}
+  </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% comment %}
+  {%- if site.disqus.shortname -%}
+  {%- include_cached disqus_comments.html -%}
+  {%- endif -%}
+  {% endcomment %}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+{%- assign prev_title = page.previous.title -%}
+{%- assign prev_url = page.previous.url -%}
+{%- assign next_title = page.next.title -%}
+{%- assign next_url = page.next.url -%}
+
+{% include related-posts.html categories=page.categories %}
+{% include_cached share-buttons-jp.html %}
+{% include_cached post-footer.html prev_title=prev_title prev_url=prev_url next_title=next_title next_url=next_url %}
+
+

@@ -1,0 +1,22 @@
+{% assign currentYear = site.time | date: "%Y" %}
+{% assign currentMonth = site.time | date: "%B" %}
+
+{% for post in site.posts %}
+  {% assign postYear = post.date | date: "%Y" %}
+  {% assign postMonth = post.date  | date: "%B" %}
+  {% assign postMonthNum = post.date | date: "%m" %}
+
+    {% if forloop.first %}
+      <li> <a href="{{site.baseurl}}/{{ postYear }}/{{ postMonthNum }}">{{ postMonth }} {{ postYear}}</a></li>
+    {% endif %}
+
+    {% if postYear == currentYear and postMonth != currentMonth %}
+      <li> <a href="{{site.baseurl}}/{{ postYear }}/{{ postMonthNum }}">{{ postMonth }} {{ postYear}}</a></li>
+    {% endif %}
+
+  {% assign currentYear = postYear %}
+  {% assign currentMonth = postMonth %}
+
+{% endfor %}
+
+

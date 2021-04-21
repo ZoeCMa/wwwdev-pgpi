@@ -1,0 +1,58 @@
+{%- assign default_paths = site.pages | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+{%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">Personal Genome Project: Global Network</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse pull-right">
+      <ul class="nav navbar-nav">
+        {%- if site.data.navigation.header[0] -%}
+          {%- for item in site.data.navigation.header -%}
+            {%- if item.type contains "dropdown" -%}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title}}<span class="caret"></span></a>
+                {%- if item.subfolderitems[0] -%}
+                  <ul class="dropdown-menu">
+                    {%- for entry in item.subfolderitems -%}
+                      {%- if entry.type contains "seperator" -%}
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">{{ entry.page }}</li>
+                      {%- elsif entry.url contains "http" or "http" contains entry.url -%}
+                        <li><a href="{{ entry.url }}">{{ entry.page }}</a>
+                      {%- else -%}
+                        <li><a href="{{ entry.url | absolute_url }}">{{ entry.page }}</a>
+                      {%- endif -%}
+
+                          {%- if entry.subfolderitems[0] -%}
+                            <ul>
+                            {%- for subentry in entry.subfolderitems %}
+                                <li><a href="{{ site.url }}{{ subentry.url }}">{{ subentry.page }}</a></li>
+                            {%- endfor -%}
+                            </ul>
+                          {%- endif -%}
+                        </li>
+                    {%- endfor -%}
+                  </ul>
+              </li>
+                {%- endif -%}
+                {%- elsif entry.url contains "http" or "http" contains entry.url -%}
+                <li><a href="{{ item.url }}">{{ item.title }}</a>
+                {%- else -%}
+              <li><a href="{{ item.url | absolute_url }}">{{ item.title }}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+
+    </div> <!--/.nav-collapse -->
+  </div> <!--/.container -->
+</nav>

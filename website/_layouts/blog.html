@@ -1,0 +1,62 @@
+---
+title: "Personal Genome Project: Global Network | Blog"
+# layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+{%- include_cached head.html title=page.title -%}
+
+{% if page.title == "Blog" or page.title == "blog" %}
+  <body class="body-blog body-{{ page.class }}">
+{% elsif page.post or page.id %}
+  <body class="body-blog body-blog-feed body-post">
+{% elsif page.type == "year" or page.type == "month" or page.type == "day" or page.type == "category" or page.type == "tag" %}
+  <body class="body-archive">
+{% elsif page.title == "Categories" or page.title == "Tags" %}
+  <body class="body-category">
+
+{% else %}
+  <body class="body-blog">
+{% endif %}
+
+  <header class="site-header">
+    {%- include_cached nav.html -%}
+  </header>
+  <div class="blog-wrapper wrapper">
+
+    {%- comment -%}
+    {% if page.title == "Blog" or page.title == "blog" %}
+      <div class="blog-title-wrap"><h1 class="page-title">{{ page.title }}</h1></div>
+    {% endif %}
+    {%- endcomment -%}
+
+    <div class="blog-main-container row">
+      <h1 id="title" class="blog-header-title"><a href="{{ site.baseurl }}/blog"><span>Personal Genome Project Blog</span></a></h1>
+      <div class="blog-subheader">
+        <div id="description" class="description">
+          <h2>News and updates about the Personal Genome Project</h2>
+        </div>
+        <div id="" style="" class="nav2"><a href="{{ site.baseurl }}/">Back to Main Website</a></div>
+      </div>
+
+      <div class="seperator-black"></div>
+      <main class="blog-content" aria-label="Content">
+        {{ content }}
+      </main>
+
+        <aside class="sidebar">
+          {%- include_cached sidebar.html -%}
+          {%- comment -%}
+          {%- endcomment -%}
+
+        </aside>
+      </div> <!-- /blog-main-container -->
+
+    </div>
+
+  {%- include_cached footer.html -%}
+</body>
+
+</html>

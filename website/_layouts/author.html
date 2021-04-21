@@ -1,0 +1,24 @@
+---
+layout: blog
+class: archive
+---
+
+<h1 class="archive-title">Posts by {{ page.name }}</h1>
+
+<div class="entries">
+  <ul class="entry-list">
+{% assign author_posts = site.posts | where: 'author', page.name %}
+{% for post in author_posts %}
+<li>
+  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+    <!-- <span class="comments_number">0</span> -->
+    <time class="archdate">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <div class="category-entry-title">{{ post.title | escape }}</div>
+  </a>
+</li>
+
+{% endfor %}
+  </ul><!--end entry-list-->
+</div>
+<div class="dotted-border-img"></div>
+

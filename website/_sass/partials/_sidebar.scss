@@ -1,0 +1,264 @@
+.sidebar {
+  clear: both;
+  display: block;
+  justify-content: flex-start;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  width: 90%;
+
+  li {
+    font-size: 14px;
+    line-height: 22px;
+    list-style: none;
+    margin: 0;
+  }
+
+  a,
+  :visited {
+    text-decoration: none;
+  }
+
+  a,
+  a:visited {
+    color: $blog--link-color;
+  }
+}
+
+.widget {
+  font-family: $blog-font-family;
+
+  ul li {
+    border-bottom: 1px solid $widget--border-color;
+    font-size: 14px;
+    margin: 0;
+    padding: 6px 0;
+  }
+}
+
+h2.widget-title {
+  border-bottom: 1px solid $widget--border-color;
+  font-family: $blog-alt-font-family;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.05pt;
+  line-height: 22px;
+  margin: 0;
+  padding: 25px 0 3px;
+  text-transform: uppercase;
+}
+
+.widget_author_grid ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0;
+  width: 300px;
+
+  li {
+    background: 0 0;
+    border: 0;
+    box-sizing: content-box;
+    clear: none;
+    float: left;
+    height: 48px;
+    list-style: none;
+    // margin: 0 3px 3px 0;
+    margin: 0 -5px -3px 0;
+    padding: 0 8px 6px 0;
+    width: 48px;
+
+    a {
+      background: 0 0;
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+// Search Bar
+.search_form input,
+.search-form input {
+  background: $grey-mid;
+  border: 2px solid $input--border-color;
+  border-bottom: 1px solid $input--border-color-2;
+  border-right: 1px solid $input--border-color-2;
+  color: $input--text-color;
+  font-size: 13px;
+  line-height: normal;
+  margin: 10px 0 0;
+  padding: 4px 2px;
+  width: 132px;
+}
+
+form.search_form,
+form.search-form {
+  font-size: 10px;
+  line-height: 22px;
+}
+
+.search-results a {
+  color: #2a7ae2;
+  font-weight: 700;
+}
+
+// Text Widget
+.textwidget {
+  font-size: 13px;
+  padding: 6px 0 0;
+}
+
+// Recent Posts
+.widget_recent_entries ul,
+.widget_archive ul {
+  margin: 0;
+  padding: 0;
+
+  li a {
+    background: url($sidebar-arrow) no-repeat 0 6px;
+    display: block;
+    padding: 0 0 0 15px;
+  }
+}
+
+.entry,
+.widget {
+  word-wrap: break-word;
+}
+
+.spad {
+  // padding-right: 20px;
+}
+
+.tpad {
+  padding-top: 20px;
+}
+
+.thin-sidebar {
+  box-sizing: content-box;
+  float: left;
+  width: 140px;
+
+  .social-small {
+    width: 14%;
+  }
+}
+
+.sidebar-left {
+  // float: left;
+  float: none;
+  margin: 0 0 20px;
+  padding: 0;
+  width: auto;
+}
+
+.sidebar-right {
+  // float: right;
+  float: none;
+  width: auto;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (min-width: 576px) {
+  .sidebar {
+    // float: none;
+
+    div {
+      width: 300px;
+    }
+  }
+
+  .sidebar-right {
+    float: left;
+    margin: 0 0 20px;
+
+    ul,
+    li {
+      justify-content: flex-start;
+    }
+
+    li {
+      margin: 12px 0 0;
+    }
+  }
+
+  .thin-sidebar .social-small {
+    display: inline;
+  }
+
+  .sidebar-left {
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .body-blog .sidebar,
+  .body-archive .blog-main-container .sidebar,
+  .body-post.body-author .blog-main-container .sidebar {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 20px 0;
+    width: 300px;
+  }
+
+  .sidebar {
+    margin: 0 auto;
+  }
+
+  .sidebar-left {
+    float: left;
+    justify-content: flex-start;
+  }
+
+  .sidebar-right {
+    float: right;
+    margin: 20px 0 0;
+    padding: 0 10px 0 0;
+  }
+
+  .sidebar .sidebar-left,
+  .sidebar .sidebar-right,
+  .sidebar-left div,
+  .sidebar-right div {
+    width: 140px;
+  }
+
+  .thin-sidebar .social-small {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .sidebar-right {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .body-blog .sidebar,
+  .sidebar {
+    padding: 0 0 20px;
+  }
+
+  .sidebar {
+    box-sizing: content-box;
+    float: right;
+    width: 300px;
+  }
+}

@@ -1,0 +1,99 @@
+// Define defaults for each variable.
+
+// $base-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$base-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$heading-font-weight: 400;
+
+$blog-font-family: Georgia, 'Times New Roman', Times, Serif;
+$blog--base-font-size: 13px !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$blog-alt-font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans', Verdana, Arial, sans-serif;
+// $base-line-height: 1.5 !default;
+$base-line-height: 1.42857143 !default;
+
+$spacing-unit:     15px !default;
+$content-padding:  $spacing-unit + 4;
+
+$text-color:       #111 !default;
+$background-color: #fdfdfd !default;
+$brand-color:      #2a7ae2 !default;
+
+$black:            #000;
+$blue:             #0066b3;
+$blue-2:           #0080e0;
+$blue-light:       #e8f5ff;
+$blue-light-2:     #d2ecff;
+$green:            #3d8f2d;
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-dark-1:      #333;
+$grey-dark-6:      #666;
+$grey-dark-2:      #757575;
+$grey-dark-3:      #777;
+$grey-mid:         #f4f4f4;
+$grey-mid-1:       #acacac;
+$grey-mid-2:       #ccc;
+$grey-mid-3:       #888;
+$maroon:           #772124;
+$orange-color:     #f66a0a !default;
+$red:              #d93025;
+$white:            #fff;
+$white-1:          #eee;
+$table-text-align: left !default;
+
+$base-border:      $blue-2;
+
+$blog--link-color: $maroon;
+
+$header--background-color: $blue-light;
+$nav-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$nav-font-size: 16px !default;
+$nav--text-color:  $blue;
+$nav--background-color: $blue-light;
+$nav--border-color: $blue-light-2;
+
+$widget--border-color: $white-1;
+$input--border-color: $grey-mid-1;
+$input--border-color-2: $grey-mid-2;
+$input--text-color: $grey-mid-3;
+
+$blockquote_img: 'images/blockquote.gif';
+$blog-img:   'images/pgp_header_420x180.png';
+$dottedline: 'images/archives-dotted-line.gif';
+$list-star:  'images/list-star.gif';
+$sidebar-arrow: 'images/list-item.gif';
+
+// Width of the content area
+$content-width:    1200px !default;
+
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+$on-medium:        $on-palm !default;
+$on-large:         $on-laptop !default;
+
+$primary: $grey-color-light;
+$info: #0066b3;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+// Notice the following mixin uses max-width, in a deprecated, desktop-first
+// approach, whereas media queries used elsewhere now use min-width.
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+

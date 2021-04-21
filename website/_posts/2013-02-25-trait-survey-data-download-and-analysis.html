@@ -1,0 +1,221 @@
+---
+layout: post
+title: Trait survey data download and analysis
+date: 2013-02-25 00:08:39.000000000 -05:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Harvard
+- PGP
+tags: []
+meta:
+  _edit_last: '20718800'
+  _publicize_pending: '1'
+author: Mad Price Ball
+login: mpball
+email: mpball@gmail.com
+display_name: Mad Price Ball
+first_name: Mad
+last_name: Ball
+permalink: "/2013/02/25/trait-survey-data-download-and-analysis/"
+---
+<p>A couple months ago I <a href="http://blog.personalgenomes.org/2012/11/13/2012-trait-surveys/">posted about our new trait surveys</a>. Thank you to all the participants who completed these so far! I'm following up now with links to the data, a bit of Python code for interpreting them, and a little analysis.</p>
+<p>The website has been updated to make the <a href="http://en.wikipedia.org/wiki/Comma-separated_values">csv format</a> files containing results from google surveys publicly available. Here are links to the <a href="https://my.personalgenomes.org/google_surveys/1">PGP participant survey</a>, and the twelve trait surveys:</p>
+<table cellpadding="5">
+<tbody>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/6">Cancer</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/12">Respiratory system</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/7">Endocrine/Metabolic/Nutritional/Immunity</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/13">Digestive system</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/8">Blood</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/14">Genitourinary systems</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/9">Nervous system</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/15">Skin and subcutaneous tissue</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/10">Vision and hearing</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/16">Musculoskeletal and connective tissue</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/11">Circulatory system</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/17">Congenital Traits and Anomalies</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>To help anyone interested in parsing the data, <a href="https://github.com/madprime/pgp_survey_analysis">I've shared the Python code</a> I've used on Github. There's also a copy of the survey data as of Feb 23 there along with some demo code, and a Readme.</p>
+<p>Finally, I did a bit of parsing of the trait survey data, combined with some features of the participant survey data (age and sex) to see if I could find anything interesting for you. The top 20 pairwise correlations below don't look terribly surprising, but I learned some new things. For example, I didn't know that <a href="http://en.wikipedia.org/wiki/Temporomandibular_joint_disorder">TMJ disorder</a> is much more common in women. (Of course, a quick web search discovers confirms this is a well known association.) This type of analysis isn't my forte -- maybe someone with more experience with machine learning can do cool stuff with this data!</p>
+<p>(To read the table below: the first row indicates "60% of females reported a UTI, while only 12% of others reported one".)</p>
+<table border="1">
+<col style="width:32%;" span="1" />
+<col style="width:32%;" span="1" />
+<col style="width:10%;" span="1" />
+<col style="width:13%;" span="1" />
+<col style="width:13%;" span="1" />
+<tbody>
+<tr>
+<th>Trait 1</th>
+<th>Trait 2</th>
+<th>p-value<sup>1</sup></th>
+<th>% 1 with 2</th>
+<th>% others with 2</th>
+</tr>
+<tr>
+<td>Female</td>
+<td>Urinary tract infection (UTI)</td>
+<td>3.1e-23</td>
+<td>60.3%</td>
+<td>12.0%</td>
+</tr>
+<tr>
+<td>High cholesterol (hypercholesterolemia)</td>
+<td>High triglycerides<br />
+(hypertriglyceridemia)</td>
+<td>2.6e-15</td>
+<td>36.9%</td>
+<td>3.1%</td>
+</tr>
+<tr>
+<td>Female</td>
+<td>Ovarian cysts</td>
+<td>1.9e-13</td>
+<td>21.9%</td>
+<td>0.4%<sup>2</sup></td>
+</tr>
+<tr>
+<td>60+ years</td>
+<td>Age-related cataract</td>
+<td>9.1e-13</td>
+<td>36.8%</td>
+<td>2.8%</td>
+</tr>
+<tr>
+<td>Female</td>
+<td>Iron deficiency anemia</td>
+<td>2.4e-11</td>
+<td>28.5%</td>
+<td>4.0%</td>
+</tr>
+<tr>
+<td>Myopia (Nearsightedness)</td>
+<td>Astigmatism</td>
+<td>5.7e-11</td>
+<td>59.2%</td>
+<td>25.5%</td>
+</tr>
+<tr>
+<td>High cholesterol (hypercholesterolemia)</td>
+<td>Hypertension</td>
+<td>1.6e-09</td>
+<td>42.9%</td>
+<td>11.6%</td>
+</tr>
+<tr>
+<td>Iron deficiency anemia</td>
+<td>Urinary tract infection (UTI)</td>
+<td>1.9e-09</td>
+<td>69.2%</td>
+<td>25.3%</td>
+</tr>
+<tr>
+<td>60+ years</td>
+<td>Age-related hearing loss</td>
+<td>6.5e-09</td>
+<td>31.6%</td>
+<td>4.1%</td>
+</tr>
+<tr>
+<td>Urinary tract infection (UTI)</td>
+<td>Ovarian cysts</td>
+<td>1.7e-08</td>
+<td>22.0%</td>
+<td>3.1%</td>
+</tr>
+<tr>
+<td>Polycystic ovary syndrome (PCOS)</td>
+<td>Ovarian cysts</td>
+<td>2.1e-08</td>
+<td>66.7%</td>
+<td>6.6%</td>
+</tr>
+<tr>
+<td>Hypothyroidism</td>
+<td>Hashimoto's thyroiditis</td>
+<td>2.7e-08</td>
+<td>23.1%</td>
+<td>0.6%</td>
+</tr>
+<tr>
+<td>Temporomandibular joint (TMJ) disorder</td>
+<td>Fibrocystic breast disease</td>
+<td>5.3e-08</td>
+<td>28.6%</td>
+<td>2.4%</td>
+</tr>
+<tr>
+<td>Nasal polyps</td>
+<td>Chronic sinusitis</td>
+<td>7.0e-08</td>
+<td>61.1%</td>
+<td>7.8%</td>
+</tr>
+<tr>
+<td>Osteoarthritis</td>
+<td>Bone spurs</td>
+<td>1.1e-07</td>
+<td>29.8%</td>
+<td>3.6%</td>
+</tr>
+<tr>
+<td>Female</td>
+<td>Temporomandibular joint (TMJ) disorder</td>
+<td>1.4e-07</td>
+<td>21.9%</td>
+<td>4.0%</td>
+</tr>
+<tr>
+<td>Female</td>
+<td>Fibrocystic breast disease</td>
+<td>1.9e-07</td>
+<td>12.6%</td>
+<td>0.4%<sup>2</sup></td>
+</tr>
+<tr>
+<td>Male</td>
+<td>Hair loss (includes female<br />
+and male pattern baldness)</td>
+<td>3.0e-07</td>
+<td>29.5%</td>
+<td>8.3%</td>
+</tr>
+<tr>
+<td>Carpal tunnel syndrome</td>
+<td>Temporomandibular joint (TMJ) disorder</td>
+<td>4.4e-07</td>
+<td>52.2%</td>
+<td>8.5%</td>
+</tr>
+<tr>
+<td>Urinary tract infection (UTI)</td>
+<td>Fibrocystic breast disease</td>
+<td>5.4e-07</td>
+<td>14.4%</td>
+<td>1.2%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><small><br />
+<sup>1</sup>As calculated using a Fisher's Exact test. Note that these are not corrected for multiple hypothesis testing. I think a pessimistic Bonferroni correction would demand around 1e-6 for the magic 'p = 0.05' cutoff.<br />
+<sup>2</sup>I didn't look closely, but I suspect these non-zero numbers are because we have some transgender participants whose sex at birth differs from the gender they identify with (and the latter was what we have recorded on the participant survey).<br />
+</small></p>

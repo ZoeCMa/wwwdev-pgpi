@@ -1,0 +1,152 @@
+title: "Personal Genome Project: Global Network"
+# email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  The Personal Genome Project, initiated in 2005, is a vision and coalition
+  of projects across the world dedicated to creating
+  public genome, health, and trait data.
+  Sharing data is critical to scientific progress, but has been hampered by
+  traditional research practices. The PGP approach is to invite
+  willing participants to publicly share their personal data for the greater good.
+
+  The Personal Genome Project, initiated in 2005, is a vision and coalition
+  of projects across the world dedicated to creating
+  public genome, health, and trait data.
+  Sharing data is critical to scientific progress, but has been hampered by
+  traditional research practices. The PGP approach is to invite
+  willing participants to publicly share their personal data for the greater good.
+
+# baseurl: "/PGPGlobal" # the subpath of your site, e.g. /blog
+# url: "https://pgpglobal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+twitter_username: PGorg
+flickr_username: personalgenomes
+# github_username:  jekyll
+google_analytics: UA-145673922-1
+
+
+# Jekyll SEO Tag Settings
+author: "Personal Genome Project: Global Network"
+logo: /assets/images/pgp-logo.png
+social:
+  - https://twitter.com/pgorg
+  # - https://facebook.com/PersonalGenomesOrg
+  - https://www.linkedin.com/company/personalgenomes-org
+  - https://www.youtube.com/user/PersonalGenomesOrg
+
+twitter:
+  username: pgorg
+  card: summary
+
+show_excerpts: true
+excerpt_seperator: "<!--more-->"
+# environment: development
+
+minima:
+  # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+  # date_format: "%b %-d, %Y"
+
+  social_links:
+    twitter: pgorg
+    # github:  jekyll
+    facebook: PersonalGenomesOrg
+    linkedin: personalgenomes-org
+    youtube: PersonalGenomesOrg
+    # Other options include: rss dribbble flickr instagram pinterest
+    # youtube_channel youtube_channel_name telegram googleplus microdotblog
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  # - jekyll-admin
+  - jekyll-include-cache
+  - jekyll-feed
+  - github-pages
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - "*.bak"
+  - "*.py"
+  - .stylelintrc.json
+  - accessibility
+  - archives.py
+  - docs
+  - Gemfile
+  - Gemfile.lock
+  - keys
+  - node_modules
+  - Rakefile
+  - README.md
+  - ref
+  - scratch
+  - TASKS.md
+  - test.py
+  - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+sass:
+  # style: expanded
+  style: compressed
+  sourcemap: always
+
+# Post Variables to enable conditional checks such as {% if page.id %} or
+# {% if page.title == "title" %}, etc
+defaults:
+  - scope:
+      path: ""      # empty string for all files
+      type: posts   # limit to posts
+      type: tags
+      type: categories
+      type: tag
+      type: category
+    values:
+      is_post: true # automatically set is_post=true for all posts
+  - scope:
+      path: ""
+      type: archive
+    values:
+      is_archive: true
+  - scope:
+      path: ""
+      type: category
+    values:
+      layout: category
+      class: category body-archive
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      class: "archive body-author"
+      layout: "author"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      # categories: Uncategorized
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      # image: assets/images/pgp-logo.png
+      image: assets/images/pgp_header_420x180.png # specified for jekyll-seo-tag purposes
+
+collections:
+  authors:
+    output: true
+  category:
+    output: true
+  news:
+    output: false
+  projects:
+    output: false
+  social-links:
+    output: false

@@ -1,0 +1,265 @@
+.contact {
+  padding: 0;
+
+  .row {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .lead-div {
+    margin: 30px 0 40px;
+  }
+}
+
+.contact-form {
+  // border-left: 1px solid #666;
+  border-radius: 5px;
+  border-top: 5px solid $green;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  margin: 20px 0 0;
+  padding: 0 16px 20px;
+  // width: 70%;
+  width: 100%;
+
+  h2 {
+    font-size: 28px;
+    // padding: 0 12px;
+    padding: 0 2px;
+  }
+
+  fieldset, {
+    padding: 0 8px;
+  }
+
+  label {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2;
+    margin: 15px 0 14px;
+  }
+
+  abbr {
+    border: 0;
+    color: $red;
+    cursor: normal;
+    text-decoration: none;
+  }
+
+  input {
+    border: 0;
+    border-bottom: 2px inset $white-1;
+    display: block;
+
+    &:not(placeholder-shown) {
+      // border: 1px solid blue;
+    }
+  }
+
+  .submit-row {
+    padding: 0 4px 0;
+  }
+
+  .submit {
+    -webkit-border-radius: 3px;
+    background: #1a73e8;
+    border: 0;
+    border-radius: 3px;
+    color: $white;
+    display: block;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    height: 35px;
+    line-height: 20px;
+    // margin: 30px 0;
+    margin: 0;
+    min-width: 88px;
+    padding: 0;
+    text-transform: uppercase;
+    transition: background .2s .1s;
+    width: 88px;
+  }
+
+  input.submit {
+    font-size: 14px;
+  }
+
+  input[type='text'] ,
+  input[type='email'] {
+    // width: auto;
+    width: 100%;
+  }
+
+  input[aria-invalid='true'],
+  textarea[aria-invalid='true'] {
+    border: 1px solid #f00;
+    box-shadow: 0 0 4px 0 #f00;
+  }
+
+  input[type='text']:focus ,
+  input[type='email']:focus {
+    border-bottom: 1px solid $green;
+    outline: none;
+    // width: 282px;
+  }
+
+  input:focus {
+    border-bottom: 1px solid $green;
+    outline: none;
+    // width: 282px;
+  }
+
+  input:required:focus {
+  /*   background: blue; */
+    // color: $green;
+  }
+
+  input[type='email']:required:focus {
+    // border:2px solid tomato;
+    color: red;
+  }
+}
+
+.required-text {
+  color: $red;
+  font-size: 13px;
+  margin: 22px 0 10px 6px;
+}
+
+.g-recaptcha {
+  margin: 20px 0 0;
+  transform: scale(0.77);
+  transform-origin: 0 0;
+}
+
+@media only screen and (min-width: 375px) {
+  .g-recaptcha {
+    margin: 20px 0 10px;
+    transform: scale(0.94);
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .contact-form {
+    input[type='text'] ,
+    input[type='email'] {
+      width: 90%;
+    }
+  }
+
+  .g-recaptcha {
+    margin: 20px 0 16px;
+    transform: initial;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .contact {
+    .lead-div {
+      margin: 30px 0 0;
+      padding: 19px 20px 20px;
+    }
+  }
+  .contact-form {
+    margin: 20px 0 20px 20px;
+    width: 90%;
+  }
+
+  .contact-form input[type='text'],
+  .contact-form input[type='email'] {
+    padding: 2px 0;
+  }
+
+  .g-recaptcha {
+    margin: 22px 0 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .contact {
+    .lead-div {
+      margin: 30px 0 10px;
+      padding: 19px 13px 20px;
+    }
+  }
+
+  .contact-form {
+    // width: 70%;
+    // width: 94%;
+
+    h2 {
+      padding: 0 12px;
+    }
+
+    .required-text {
+      margin: 22px 0 10px 12px;
+    }
+
+    fieldset, {
+      padding: 0 16px;
+    }
+
+    label {
+      margin: 15px 0 14px;
+    }
+
+    input[type="text"] ,
+    input[type="email"] {
+      width: 282px;
+    }
+
+    #contact-message {
+      width: 88%;
+    }
+
+    .submit {
+      margin: 30px 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .contact {
+    .lead-div {
+      margin: 30px 0 20px;
+      padding: 19px 19px 20px;
+    }
+  }
+
+  .contact-form {
+    margin: 20px 0 20px 40px;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .contact-form {
+    margin: 20px 0 20px 40px;
+    width: 86%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .contact {
+    .lead-div {
+      padding: 19px 0 20px;
+    }
+  }
+
+  .contact-form {
+    margin: 20px 0 20px 40px;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .contact {
+    .lead-div {
+      padding: 19px 5px 20px;
+    }
+  }
+
+  .contact-form {
+    margin: 20px 0 20px 40px;
+    width: 80%;
+  }
+}

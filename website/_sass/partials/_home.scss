@@ -1,0 +1,124 @@
+.home {
+  h1,
+  h2 {
+    margin: 0 0 10px;
+  }
+
+  .page-title {
+    padding: 0 10px 0 0;
+    text-align: center;
+  }
+}
+
+.pgp-row-about {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.pgp-description {
+  padding: 0 0 0 5px;
+}
+
+.lead-div {
+  margin-top: 30px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.logo {
+  margin: 20px 0 0px;
+  max-width: 80%;
+}
+
+.local-projects {
+  border-color: $base-border;
+  border-radius: 6px;
+  border-style: solid;
+  padding: 15px;
+}
+
+.local-projects-wrap {
+  margin: 0;
+}
+
+.local-projects-header {
+  color: $base-border;
+  font: 400 16px/1.42857143 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-variant: small-caps;
+  margin: 0;
+}
+
+@media only screen and (min-width: 425px) {
+  // .pgp-description {
+  //   padding: 0 0 0 5px;
+  // }
+}
+
+@media only screen and (min-width: 576px) {
+  main.page-content.home {
+    padding: 19px 10px 0;
+  }
+
+  .home .page-title {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .home {
+    .page-title {
+      font-size: 32px;
+    }
+
+    ul, ol {
+      padding: 0 10px 0 40px;
+    }
+  }
+
+  .pgp-row-about {
+    display: block;
+  }
+
+  .pgp-description {
+    font-size: 19px;
+  }
+
+  .logo {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .home .page-title {
+    font-size: 36px;
+  }
+
+  .pgp-description {
+    font-size: 21px;
+    padding: 0;
+  }
+
+  .logo {
+    float: none;
+    margin: 20px 0 0;
+    max-width: 80%;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .home {
+    h1,
+    h2,
+    h3 {
+      margin: 20px 0 10px;
+    }
+
+    .page-title {
+      margin: 0 0 10px;
+    }
+  }
+}

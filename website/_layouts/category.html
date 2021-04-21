@@ -1,0 +1,29 @@
+---
+layout: blog
+class: archive
+---
+
+{% if page.uppercase == true %}
+<h1 class="archive-title">Posts from the '{{ page.title | upcase }}' Category</h1>
+{% else  %}
+<h1 class="archive-title">Posts from the '{{ page.tag }}' Category</h1>
+{% endif  %}
+
+<div class="entries">
+  <ul class="entry-list">
+  {% for category in site.categories %}
+  {% assign cat_check = category[0] | downcase | replace: ' ', '-' %}
+    {%- if page.tag == cat_check -%}
+      {%- for post in category[1] -%}
+      <li>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          <time class="archdate">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <div class="category-entry-title">{{ post.title | escape }}</div>
+        </a>
+      </li>
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+  </ul> <!--end entry-list-->
+</div>
+<div class="dotted-border-img"></div>

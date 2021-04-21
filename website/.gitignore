@@ -1,0 +1,16 @@
+# _site
+# .sass-cache
+# .jekyll-metadata
+# scratch/
+# node_modules
+# ref
+# _tmp
+# foo
+# _scratch
+# _2016.bak
+# _deletion
+# .stylelint.js
+# _staging*
+# *_lunadev*
+# package-lock.json
+# CNAME

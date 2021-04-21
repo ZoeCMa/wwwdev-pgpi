@@ -1,0 +1,37 @@
+---
+layout: blog
+permalink: /categories/
+title: Categories
+class: archive
+# redirect_from: /category
+redirect_from: /archive
+---
+
+<h1 class="archive-title">Categories</h1>
+
+<div class="entries">
+  <ul class="entry-list">
+    {% assign categories_list = site.categories | sort %}
+      {% if categories_list.first[0] == null %}
+        {% for category in categories_list %}
+          {% unless category contains "admin" or category[0] contains "admin" %}
+          <li><a class="category-link" href="{{ category | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})
+          </a></li>
+          {% endunless %}
+        {% endfor %}
+      {% else %}
+        {% for category in categories_list %}
+          {% unless category contains "admin" or category[0] contains "admin" %}
+          <li><a class="category-link" href="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})
+          </a></li>
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+    {% assign categories_list = nil %}  </ul>
+</div><!--end entry-list-->
+<div class="dotted-border-img"></div>
+
+<div class="navigation">
+  <div class="alignleft"></div>
+  <div class="alignright"></div>
+</div><!--end navigation-->

@@ -1,0 +1,66 @@
+---
+layout: post
+title: 2012 Trait Surveys
+date: 2012-11-13 11:20:29.000000000 -05:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- PGP
+tags: []
+meta:
+  _edit_last: '20718800'
+  _publicize_pending: '1'
+  _oembed_f7eecb0f238346d620875f4ab8597d61: "{{unknown}}"
+  _oembed_378908c3637f4e231b6d4951b1e2dfbe: "{{unknown}}"
+  _oembed_720b61f08dcdd4a49b8ad5f9736fbc4f: "{{unknown}}"
+author: Mad Price Ball
+login: mpball
+email: mpball@gmail.com
+display_name: Mad Price Ball
+first_name: Mad
+last_name: Ball
+permalink: "/2012/11/13/2012-trait-surveys/"
+---
+<p>Part of what makes <a href="http://www.personalgenomes.org">Personal Genome Project</a> participant data uniquely valuable is our publicly shared trait data connected to public genetic data. A year ago our project was frustrated when our best resource for importing health data -- <a href="http://en.wikipedia.org/wiki/Google_Health">Google Health</a> -- was discontinued. Ward soon got an interface running to import data from <a href="http://en.wikipedia.org/wiki/Microsoft_HealthVault">Microsoft HealthVault</a>; the <a href="http://en.wikipedia.org/wiki/Continuity_of_Care_Record">CCR-format</a> data it produces is very similar, but isn't trivially combined with our Google Health records.<sup>1  </sup>We wanted to improve the quality of our trait data and provide another option for adding traits to public profiles.</p>
+<p>And so we created a set of twelve trait surveys (the links below will only work for PGP participants) covering <a href="https://docs.google.com/spreadsheet/ccc?key=0Ak9Wmb_OL6XjdF9jZ09hSzVXQ0MyZDVjVWNuNUkteEE#gid=0">239 traits and diseases</a>:</p>
+<table border="1">
+<tbody>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/6">Cancer</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/12">Respiratory System</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/7">Endocrine, Metabolic, Nutritional, and Immunity</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/13">Digestive System</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/8">Blood</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/14">Genitourinary Systems</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/9">Nervous System</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/15">Skin and Subcutaneous Tissue</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/10">Vision and Hearing</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/16">Musculoskeletal System and Connective Tissue</a></td>
+</tr>
+<tr>
+<td><a href="https://my.personalgenomes.org/google_surveys/11">Circulatory System</a></td>
+<td><a href="https://my.personalgenomes.org/google_surveys/17">Congenital Traits and Anomalies</a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>To select what traits and conditions to include, the Google Health data was an invaluable resource. I was able to combine conditions using their <a href="http://en.wikipedia.org/wiki/ICD#ICD-9">ICD-9 codes</a> (or, if unavailable, by internal Google codes).<sup>2 </sup>Here's the five most common reported traits:</p>
+<p>[caption id="attachment_827" align="aligncenter" width="540"]<a href="http://blog.personalgenomes.org/2012/11/13/2012-trait-surveys/20121101_pgp_top_five_conditions/" rel="attachment wp-att-827"><img class=" wp-image-827  " title="PGP Top Five Conditions" alt="" src="{{ site.baseurl }}/assets/images/20121101_pgp_top_five_conditions.png" height="155" width="540" /></a> Top five conditions reported on Google Health records contributed by PGP participants.[/caption]</p>
+<p>We tried to settle on four encodings corresponding to each trait: <a href="http://en.wikipedia.org/wiki/ICD#ICD-9">ICD-9</a>, <a href="http://en.wikipedia.org/wiki/ICD#ICD-10">ICD-10</a>, <a href="http://en.wikipedia.org/wiki/SNOMED_CT">SNOMED CT</a>, and <a href="http://ncimeta.nci.nih.gov/ncimbrowser/">NCIMetathesaurus CUI</a>.<sup>3 </sup> I've shared our list of traits surveyed, along with the encodings we consider them associated with, as <a href="https://docs.google.com/spreadsheet/ccc?key=0Ak9Wmb_OL6XjdF9jZ09hSzVXQ0MyZDVjVWNuNUkteEE#gid=0">a Google spreadsheet</a>.</p>
+<p>A useful aspect of the ICD encodings is their organization by topic, and so our traits were split into twelve survey topics by ICD-9 encoding. It's impossible to be perfect in a first pass, but we tried to include anything that was fairly well-defined, not too rare (a prevalence of at least 1 in 10,000), and within the twelve ICD-9 ranges selected for the surveys. You might notice that some ICD-9 ranges were not used -- most notably, the category of mental traits and disorders. We do hope to survey these as well, but I want to be sure that participants are able to easily manipulate data on their public profiles before adding such a potentially sensitive category.</p>
+<p>All PGP participants are invited to enter public trait data using these surveys -- although contributing such information is optional, and not required for participation. Even if you don't see a condition listed in the survey that you want to add, submitting an empty survey is useful information. I hope to follow up soon with a blog post analyzing some of the resulting data.</p>
+<hr />
+<p><small><sup>1</sup>On top of it, these records contain identifying data (like names and email addresses) that our participants weren't intending to make public. This meant we couldn't share the raw data, anything we shared was limited by our private CCR data interpretation process. Ideally we wouldn't be in this position: sharing raw data and allowing others to interpret it would be better, scientifically.</small></p>
+<p><small> <sup>2</sup>If you're interested in it, this data was made available as "Dataset S1" in our <a href="http://www.pnas.org/content/109/30/11920.long">recent open-access PNAS publication</a>. </small></p>
+<p><small> <sup>3</sup>Why four different coding systems? A couple of reasons: for redundancy, to facilitate using our data in other systems, to provide a starting point for harmonizing data from imported health records, and because we weren't (and still aren't) sure whether or how we'll be able to work with the licensing issues associated with some of these popular encoding systems. </small></p>

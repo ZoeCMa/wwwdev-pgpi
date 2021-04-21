@@ -1,0 +1,61 @@
+---
+layout: post
+title: Exploring the Harvard PGP Dataset with Untap
+date: 2015-11-19 15:02:51.000000000 -05:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Harvard
+- PGP
+tags: []
+meta:
+  _edit_last: '96885940'
+  geo_public: '0'
+  _publicize_job_id: '17018632095'
+author: nouyangcuroverse
+login: nouyangcuroverse
+email: nancy@curoverse.com
+display_name: nouyangcuroverse
+first_name: ''
+last_name: ''
+permalink: "/2015/11/19/exploring-the-harvard-pgp-dataset-with-untap/"
+---
+<p>Recently, my co-worker Abram Connelly scraped the phenotypes in the<a href="https://my.pgp-hms.org/users"> Harvard Personal Genome Project</a> and made it available in a small SQLite database, publicly available for anyone to download. He made a small webapp around the database where people can play around with the data directly in their browser.</p>
+<p>Current webapp (first page has link to gzip of the database) is linked to at the top of <a href="https://workbench.su92l.arvadosapi.com/projects/su92l-j7d0g-k6xjjk9g0l5pmqh#">this page</a>.</p>
+<h2>dataset</h2>
+<p><a href="https://personalgenomes.files.wordpress.com/2015/10/011.png"><img class="alignnone wp-image-1661 size-large" src="{{ site.baseurl }}/assets/images/011.png?w=660" alt="011" width="660" height="504" /></a></p>
+
+<!--more-->
+
+<p>The dataset consists of people who have completed the enrollment process and were free to upload their own data for public release and also answer the surveys online (but not necessarily people who have donated samples, had the samples sequence, or had the samples released publicly).</p>
+<p>To put it concretely, there are around <strong>4000 people enrolled</strong>, and around<strong> 200 people with whole genome sequences</strong> that were  sequenced, interpreted, and returned by Harvard PGP as of August 2015 (though keep your ears open for upcoming news). (Participants may have whole genomes sequenced independently and then elect to upload and donate the data to the Harvard PGP).</p>
+<h2>webapp</h2>
+<p>Returning to the webapp, there are a few default tabs, where you can do things like explore what year PGP participants were born, where you can see that our population is mostly young folks...</p>
+<p><a href="https://personalgenomes.files.wordpress.com/2015/10/041.png"><img class="alignnone wp-image-1662 size-large" src="{{ site.baseurl }}/assets/images/041.png?w=660" alt="041" width="660" height="506" /></a></p>
+<h3>"Summary" Pre-Packaged View of Allergies of Participants</h3>
+<p>...or with two clicks see what allergies are most common in PGP participants. Note that this is a quick scrape of the Tapestry database and no clean-up has been done, so you'll notice allergies being listed twice with different spellings.</p>
+<p><a href="http://gfycat.com/ifr/EvenEnormousElephantbeetle">http://gfycat.com/ifr/EvenEnormousElephantbeetle</a></p>
+<h3>SQL Queries for Participants with "Oak" Allergies</h3>
+<p>On the "queries" tab, you can query the sql database and see the results in neat table form in your browser.</p>
+<p><a href="http://gfycat.com/ifr/NiftyExcellentKoala">http://gfycat.com/ifr/NiftyExcellentKoala</a></p>
+<p>Additionally, there are some pre-packaged but interactive visualizations, where you can edit the text and have the graph update to reflect your changes / newly requested data.</p>
+<p>For instance, here's a display of the participant gender ratio at different ages which I modify to display information about the allergies at different age buckets</p>
+<h3>before, displaying gender of participants</h3>
+<p><a href="https://personalgenomes.files.wordpress.com/2015/10/271.png"><img class="alignnone wp-image-1663 size-large" src="{{ site.baseurl }}/assets/images/271.png?w=660" alt="271" width="660" height="506" /></a></p>
+<p>&nbsp;</p>
+<h3>and after, displaying penicillin and house dust allergies</h3>
+<p><a href="https://personalgenomes.files.wordpress.com/2015/10/281.png"><img class="alignnone size-large wp-image-1664" src="{{ site.baseurl }}/assets/images/281.png?w=660" alt="281" width="660" height="535" /></a></p>
+<p>&nbsp;</p>
+<h3>Obligatory cat statistics</h3>
+<p><a href="http://gfycat.com/ifr/DearContentAracari">http://gfycat.com/ifr/DearContentAracari</a></p>
+<p>Although one could hope that this graph shows that PGP participants are not more likely to develop allergies to cats as they grow older, we have a lot more younger participants and this is absolute and not percent frequency, so we might have to say the data points to the opposite. Sad!</p>
+<p>(Disclaimer: Just for fun, no real thought put into this analysis :] )</p>
+<h2>Conclusion</h2>
+<p><strong>Ever wanted a public genotype + phenotype dataset? The Harvard PGP has you covered!</strong></p>
+<p>We have <a href="https://my.pgp-hms.org/google_surveys">phenotype surveys galore</a> (including a recently released one that includes blood type and eye color), with responses available in CSV form. The questions on the survey forms are <a href="https://github.com/PGPHarvard/pgp-surveys">available on github for now</a>.</p>
+<p>I hope you all enjoy! The source code for Untap is <a href="https://github.com/abeconnelly/untap">on github</a></p>
+<p><strong><a href="https://github.com/abeconnelly/untap">https://github.com/abeconnelly/untap</a></strong></p>
+<p>and Abram welcomes feature requests / issue reporting. We hope this is beneficial to the <a href="http://ga4gh.org/">GA4GH working groups</a> specifically and other researchers in general.</p>

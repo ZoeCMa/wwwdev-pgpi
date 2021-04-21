@@ -1,0 +1,41 @@
+---
+layout: post
+title: 'PGP18: A 23andme exome'
+date: 2012-05-03 13:28:51.000000000 -04:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- personal genomics
+- PGP
+tags: []
+meta:
+  _edit_last: '20718800'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1457633237;}
+  _oembed_bc01371ef888b7958a1820e259d7f13a: "{{unknown}}"
+  _oembed_55745f8e2f5ed6e0da72aa0eb6cc52fc: "{{unknown}}"
+  _oembed_c87b883f6b953c8eec99bcd074e272e4: "{{unknown}}"
+  _oembed_ccb37b7b3c9a282e526a3a73e51990e3: "{{unknown}}"
+  _oembed_94e60aaba105cf5c67101949b7fb1e7f: "{{unknown}}"
+  _oembed_cb5ddda91dcfe87bbc12a8e12ae6955f: "{{unknown}}"
+author: Mad Price Ball
+login: mpball
+email: mpball@gmail.com
+display_name: Mad Price Ball
+first_name: Mad
+last_name: Ball
+permalink: "/2012/05/03/pgp18-a-23andme-exome/"
+---
+<p>We're happy to announce that the Personal Genome Project has received its first donated <a href="http://evidence.personalgenomes.org/genomes?display_genome_id=9b06f9c6c008e0a91d50b6e3b468d57c8f7a8fcb">23andme exome</a> from a participant! As with the genotyping data acquired from direct to consumer testing companies, the PGP also welcomes donations of larger data sets like genomes and exomes. When assigning PGP nicknames (like "PGP1"), we have decided they should go to individuals who have exome or genome data hosted in the PGP -- whether sequenced by us, or donated to us. Thus, <a href="https://my.personalgenomes.org/profile/hu97DB4A">hu97DB4A</a> now has the nickname "PGP18"!</p>
+<p><strong>What is exome data?</strong></p>
+<p>In my earlier post "<a href="http://blog.personalgenomes.org/2012/03/21/the-whole-two-yards/">The Whole Two Yards</a>" I explained that the PGP is interested in whole genomes rather than genotyping. Exome sequencing is a third category of DNA analysis. So what is an <a href="http://en.wikipedia.org/wiki/Exome">exome</a>?</p>
+<p>"Exome sequencing" refers to something much like genome sequencing, but limited to the regions in the genome that code for <a href="http://en.wikipedia.org/wiki/Protein">proteins</a> (the "<a href="http://en.wikipedia.org/wiki/Exon">exons</a>" of genes). Proteins perform most of the functions in the cell: from <a href="http://en.wikipedia.org/wiki/Collagen">structures</a> to <a href="http://en.wikipedia.org/wiki/Enzyme">enzymes</a> to <a href="http://en.wikipedia.org/wiki/Notch_signaling">relaying signals</a>, proteins are the workhorses of biology. Thus, most known genetic variations that have significant effects are the result of changes within exons -- changes that disrupt the resulting protein coded by a gene. Surprisingly, these regions only account for 1% of the genome! Because of this, there has been some focus on targeted sequencing of only exons -- hopefully getting almost as much useful sequence for a fraction of the cost.</p>
+<p>[caption id="attachment_433" align="aligncenter" width="480"]<a href="http://en.wikipedia.org/wiki/File:Gene_structure.svg"><img class="size-full wp-image-433" title="exon_intron" src="{{ site.baseurl }}/assets/images/exon_intron.png" alt="" width="480" height="75" /></a> Genes contain protein coding regions ("exons") interspersed with large non-coding gaps ("introns"). To save money, exome sequencing targets and sequences only the exons in the genome -- thereby focusing on the regions most likely to have variations that affect traits. [Image by User:Daycd on en.wikipedia.org, shared as CC-BY-SA][/caption]In the end, isolating exons is difficult, so "exomes" aren't that much cheaper than whole genomes (maybe 2-3x cheaper, not 100x)... but it's still useful to have the cheaper option.<sup>1</sup> <a href="https://www.23andme.com/">23andme</a> recently started a <a href="https://www.23andme.com/exome/">pilot exome sequencing service</a> (notably, they provide no interpretation of the data), and some PGP participants have signed up for it.</p>
+<p><strong>Addition of VCF interpretation in GET-Evidence</strong></p>
+<p>23andme provided the participant with both a <a href="http://en.wikipedia.org/wiki/Variant_Call_Format">VCF</a> file and individual read data (in the form of a "BAM" file). Personally I'm not a fan of the VCF format for personal genomes, mainly because it fails to report which regions are confidently called as "matching reference". (What this means is that, if a variant <strong>isn't</strong> listed in the file, you can't tell whether <strong>(a)</strong> you don't have it, or <strong>(b)</strong> that region simply wasn't well covered.)</p>
+<p>That said, VCF is a very common format, and so I've finally <a href="https://github.com/madprime/get-evidence/commit/d444ace777d8cacbc6ff6ef21f8844496d8f46ac">added the ability to interpret VCF</a> to <a href="http://evidence.personalgenomes.org/about">GET-Evidence</a>. I ran the exome data through GET-Evidence and did a little bit of additional interpretation (as with other whole genome reports, these interpretation is far from complete). You can <a href="http://evidence.personalgenomes.org/genomes?display_genome_id=9b06f9c6c008e0a91d50b6e3b468d57c8f7a8fcb">visit the report</a> on GET-Evidence -- and if you'd like a copy of the VCF file itself, it is linked at the top of the report as "source data". We're hoping to reprocess the BAM files to produce higher quality reports and publicly host these larger files as well. For now, though, we're able to immediately accept and interpret VCF files.</p>
+<p>Donation of genetic data is very valuable to our project, hopefully we'll see other 23andme exomes donated from participants in the future!</p>
+<hr />
+<p><small><sup>1</sup>Exomes have other issues that makes them less desirable, including extremely high variations in coverage, and are difficult to use for detection of larger structural variations (like large deletions or duplications of regions). The PGP does whole genome sequencing because we wish to collect the best data possible, and we feel that a full genome's data is worth the 2-3x higher cost.</small></p>

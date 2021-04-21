@@ -1,0 +1,33 @@
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal">
+{% assign maxRelated = 3 %}
+{% assign minCommonTags =  1 %}
+{% assign maxRelatedCounter = 0 %}
+
+{% assign posts = site.posts | where_exp:"post", "post.url != page.url" | sample: 20 %}
+{% for post in posts %}
+
+  {% assign sameTagCount = 0 %}
+  {% assign commonTags = '' %}
+
+  {% for category in post.categories %}
+      {% if include.categories contains category %}
+        {% assign sameTagCount = sameTagCount | plus: 1 %}
+        {% capture tagmarkup %} <span class="jp-relatedposts-post-context">In <a href="{{ site.baseurl }}/category/{{ category | slugify }}">"{{ category }}"</a></span>{% endcapture %}
+        {% assign commonTags = commonTags | append: tagmarkup %}
+      {% endif %}
+  {% endfor %}
+
+  {% if sameTagCount >= minCommonTags %}
+    <p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="1229" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title post.excerpt }}" rel="nofollow" data-origin="1698" data-position="0">{{ post.title }}</a></span></span>{{ commonTags}}
+    {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+    {% if maxRelatedCounter >= maxRelated %}
+      {% break %}
+    {% endif %}
+  {% endif %}
+
+{% endfor %}
+  </div>
+</div>

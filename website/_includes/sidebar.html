@@ -1,0 +1,95 @@
+<script src="{{ "/scripts/gravatar.js" | relative_url }}" type="text/javascript" charset="utf-8"></script>
+
+<div id="sidebar-content">
+  <div id="author_grid-2" class="widget widget_author_grid">
+    <h2 class="widget-title">Contributors</h2>
+    <ul>
+      {% for author in site.authors %}
+      {% if author.email %}
+        <script>
+          document.write('<li><a id="{{ author.gravatar_name }}" href="{{ site.url }}{{ site.baseurl }}{{ author.url }}">')
+          document.write('<img src="' + get_gravatar('{{ author.email }}', 48) + '" alt="Author thumbnail for {{ author.name }}" class="avatar avatar-48 grav-hased" height="48" width="48" /></a></li>');
+        </script>
+
+      {% endif %}
+
+      {% endfor%}
+    </ul>
+  </div>
+
+  <div id="search-3" class="widget widget_search">
+    <!-- HTML elements for search -->
+    <h2 class="widget-title">Search</h2>
+
+    <form class="search-form"><input type="text" id="search-input" placeholder="Search blog posts.."></form>
+    <ul class="search-results" id="results-container"></ul>
+
+    <!-- script pointing to jekyll-search.js -->
+    <script src="{{ site.baseurl }}/scripts/search-script.min.js"></script>
+
+    <!-- Configuration -->
+    <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{ site.baseurl }}/search.json'
+    })
+    </script>
+  </div>
+
+  <div id="text-2" class="widget widget_text">
+    <h2 class="widget-title">Subscribe via Email</h2>
+    <div class="textwidget"><a href="https://feedburner.google.com/fb/a/mailverify?uri=PersonalGenomeProjectBlog&amp;loc=en_US">Subscribe to Personal Genome Project Blog by Email</a></div>
+  </div>
+
+  <div id="recent-posts-2" class="widget widget_recent_entries">
+    <h2 class="widget-title">Recent Posts</h2>
+    <ul>
+      {% assign maxPost = 5 %}
+      {% assign counter = 0 %}
+      {% for post in site.posts | sort:"date" | reverse %}
+      <li>
+        <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+      </li>
+      {% assign counter = counter | plus: 1 %}
+      {% if counter == maxPost %}
+      {% break %} {% comment %}exit the for loop{% endcomment %}
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  {%- comment -%}
+  {% if jekyll.environment == "development" %}
+    <div id="twitter-2" class="widget widget_twitter"></div>
+  {% endif %}
+  {%- endcomment -%}
+  {% if jekyll.environment =="production" %}
+    <div id="twitter-2" class="widget widget_twitter">
+      <h2 class="widget-title">
+        <a class="twitter-timeline" data-width="300" data-dnt="true" data-theme="light" data-tweet-limit="3" href="https://twitter.com/PGorg?ref_src=twsrc%5Etfw">Twitter Updates</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </h2>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  {% endif%}
+
+  <div class="thin-sidebar sidebar-left spad">
+    <div id="archives-3" class="widget widget_archive">
+      <h2 class="widget-title">Archives</h2>
+      <ul>
+        {% include_cached sidebar-archives.html %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="thin-sidebar sidebar-right">
+    <ul>
+      {% assign sorted = site.social-links | sort: 'order' %}
+      {% for item in sorted %}
+      <li class="widget widget_media_image {{ item.class }}">
+        <a href="{{ item.link }}"><img src="{{ item.src | prepend: "/assets/images/" | relative_url }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}"></a>
+        {% endfor %}
+      </li>
+    </ul>
+  </div>
+</div> <!-- End Sidebar -->

@@ -1,0 +1,70 @@
+h1,
+h2,
+h3 {
+  margin: 20px 0 10px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $white-1;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+a.anchor-offset {
+  display: block;
+  position: relative;
+  top: -50px;
+  visibility: hidden;
+}
+
+img.profile-photo {
+  max-width: 250px;
+  width: 100%;
+}
+
+.thumbnail.profile .caption {
+  overflow: hidden;
+
+  a {
+    color: $grey-dark-1;
+  }
+
+}
+
+@media only screen and (min-width: 425px) {
+
+}
+
+@media (max-width: 620px) and (min-width: 450px) {
+  .thumbnail h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 400px) {
+  .thumbnail h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) and (min-width: 340px) {
+  .thumbnail h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .thumbnail h3 {
+    font-size: 14px;
+  }
+}
+

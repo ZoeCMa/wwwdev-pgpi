@@ -1,0 +1,42 @@
+---
+layout: post
+title: PGP Harvard data in Google Cloud Storage
+date: 2014-05-30 15:17:15.000000000 -04:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Harvard
+- PGP
+tags: []
+meta:
+  _edit_last: '20718800'
+  geo_public: '0'
+  _publicize_pending: '1'
+author: Mad Price Ball
+login: mpball
+email: mpball@gmail.com
+display_name: Mad Price Ball
+first_name: Mad
+last_name: Ball
+permalink: "/2014/05/30/pgp-harvard-data-in-google-cloud-storage/"
+---
+<p>At PGP Harvard our participants are, by and large, very enthusiastic about understanding genetics and their own genomes. Many participants are programmers, researchers, and often both! It should come as no surprise that our staff are often asked “can I see more of the <em>raw</em> data?”</p>
+<p>[caption id="attachment_1380" align="alignright" width="300"]<a href="http://personalgenomes.files.wordpress.com/2014/05/porsche_drives.jpg"><img class="size-medium wp-image-1380" src="{{ site.baseurl }}/assets/images/porsche_drives.jpg?w=300" alt="Some drives our genomes arrived on. Porsche design! That’s how you know it’s quality. © 2012 Alexander Wait Zaranek, released as CC-BY." width="300" height="225" /></a> Some drives our genomes arrived on. Porsche design! That’s how you know it’s quality.<br />© 2012 Alexander Wait Zaranek, <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a> license.[/caption]</p>
+<p>We’ve always wanted the entire “raw data” to be public, for participants and researchers alike. One issue that stymied us was the intractable size of the data: this sort of data is typically shipped on terabyte disks. I’m now happy to share that we now have an answer and a place to find the data, although accessing this requires some familiarity with using a command line interface and maybe a smidge of programming.</p>
+<p>The full data sets PGP Harvard received from Complete Genomics are now shared on a public bucket on Google Cloud Storage, using credits generously donated by Google. Data is organized by huID.</p>
+<p>The bucket: gs://pgp-harvard-data-public</p>
+<p>To access the bucket, you should read about <a href="https://developers.google.com/storage/docs/gsutil">installing and using gsutil</a>.</p>
+<p><strong>Some example commands</strong></p>
+<p>List contents of bucket top level:<br />
+<code><a href="https://developers.google.com/storage/docs/gsutil/commands/ls">gsutil ls</a> gs://pgp-harvard-data-public</code></p>
+<p><span style="color:#000000;">Recursively list contents of hu011C57 directory, with date and file size details</span>:<br />
+<code><a href="https://developers.google.com/storage/docs/gsutil/commands/ls">g</a><span style="color:#000000;"><a href="https://developers.google.com/storage/docs/gsutil/commands/ls">sutil ls -Rl</a> gs://pgp-harvard-data-public/hu011C57</span></code></p>
+<p><span style="color:#000000;">Download/copy the var file from hu011C57 Complete Genomics data to your current directory <span style="color:#ff0000;"><strong>(234 MB)</strong></span></span>:<br />
+<code><a href="https://developers.google.com/storage/docs/gsutil/commands/cp">g</a><span style="color:#000000;"><a href="https://developers.google.com/storage/docs/gsutil/commands/cp">sutil cp</a> gs://pgp-harvard-data-public/hu011C57/GS000018120-DID/GS000015172-ASM/GS01669-DNA_B05/ASM/var-GS000015172-ASM.tsv.bz2 .</span></code></p>
+<p><span style="color:#000000;">With multi-threading and recursion, copy the hu011C57 directory to your current directory. <span style="color:#ff0000;"><strong>(40.8 GB)</strong></span></span>:<br />
+<code><a href="https://developers.google.com/storage/docs/gsutil/commands/cp">gsutil -m cp -R</a> gs://pgp-harvard-data-public/hu011C57 .</code></p>
+<p><strong>Use a Google Compute Engine VM to analyze the data</strong></p>
+<p>You can also access this data using virtual machines in the <a href="https://cloud.google.com/products/compute-engine/">Google Compute Engine</a> - this could save you a lot of disk space! Once you have a virtual machine you can, for example, <a href="https://developers.google.com/compute/docs/api/python-guide">use the Python Client Library to automatically access data</a>.</p>
