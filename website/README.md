@@ -5,26 +5,11 @@ This is the repo for the rewrite of the [PGP Global](https://www.personalgenomes
 <!-- MarkdownTOC -->
 
 * [Instructions and Documentation](#instructions-and-documentation)
-* [Questions & Content Needed](#questions--content-needed)
-  * [SEO - Webmaster Verifications](#seo---webmaster-verifications)
-* [Absolute vs Relative URLs](#absolute-vs-relative-urls)
-  * [Nav Alignment & Logo Distorting](#nav-alignment--logo-distorting)
-    * [Plugins Staging & Production](#plugins-staging--production)
-    * [Plugins - Local Dev](#plugins---local-dev)
-* [Accessibility](#accessibility)
-* [Cleanup](#cleanup)
+* [Issues](#issues)
+* [Nice to Have](#nice-to-have)
+  * [Gravatars Fallback](#gravatars-fallback)
+  * [Replace Captions and Shortcodes](#replace-captions-and-shortcodes)
   * [SCSS \(extra/non-essential\)](#scss-extranon-essential)
-* [Staging and Production](#staging-and-production)
-  * [Optimization](#optimization)
-    * [Images](#images)
-    * [CDN - Cloudflare](#cdn---cloudflare)
-  * [SEO & Webmaster Tools](#seo--webmaster-tools)
-  * [Domain & Subdomain Setup](#domain--subdomain-setup)
-  * [Favicon](#favicon)
-  * [Contact Form](#contact-form)
-* [Notes](#notes)
-  * [Captions and Shortcodes](#captions-and-shortcodes)
-  * [Deprecated](#deprecated)
 
 <!-- /MarkdownTOC -->
 
@@ -37,76 +22,68 @@ See A current list of documentation files includes:
 * [Documentation](docs/documentation.md) - general documentation
 * [Resources](docs/resources.md) - a list of various resources related to in-progress tasks
 
-<a id="questions--content-needed"></a>
-## Questions & Content Needed
+<a id="issues"></a>
+## Issues
 
-<a id="seo---webmaster-verifications"></a>
-### SEO - Webmaster Verifications
-
-Good idea to verify with Google Webmaster Tools, etc if not already. Sample config values for `jekyll-seo-tag`:
-
-```yaml
-# Just Google
-google_site_verification
-
-# Multiple Services
-webmaster_verifications:
-  google: 1234
-  bing: 1234
-  alexa: 1234
-  yandex: 1234
-  baidu: 1234
-```
-
-2. What's the correct Facebook link? `https://facebook.com/PersonalGenomesOrg` results in a 404/Page Not Found.
-
-<a id="absolute-vs-relative-urls"></a>
-## Absolute vs Relative URLs
-
+* Build time is horrendous, unless using `--limit_posts`
+  * This may be due to the archives plugin?
+* Swap archives plugin for `jekyll-archives`?
 * Finishing replacing relative URLs where relevant
   * See [CDN - Cloudflare](#cdn---cloudflare) regarding performance
+* Is Logo still distorted for Sarah (or anyone else)?
+  * Previous note: Seems to be a result of bootstrap's `margin-left: -15px; margin-right: -15px;` setting on `.row` classes
+* Blog page - performance is terrible. Needs either CDN, pagination, etc.
+* Add ARIA roles
+* Figure out what `defaults` can be removed from `_config.yml`
+* Double check: 
+  * favicon w/ Real Favicon Generator (should be fine)
+  * Contact Form
+* Verify site with Webmaster Tools, prior to launch
+* `jekyll-autoprefixer`? `scripts/prefixfree.js` may be taking care of this
+* Flickr API for Sidebar(?) - Is this still relevant?
 
-<a id="nav-alignment--logo-distorting"></a>
-### Nav Alignment & Logo Distorting
+<a id="nice-to-have"></a>
+## Nice to Have
 
-1. News page is currently off w/ Nav Alignment
-    * Home page nav alignment is currently fine
-2. Sarah mentioned the Logo looked distorted
-    * Seems to be a result of the weird `margin-left: -15px; margin-right: -15px;` setting on `.row` classes
+* Responsive Images and/or Lazy Loading
+  * May be very relevant for blog on mobile
+  * There is already an `_includes/lazyload.html` - doesn't seem to be being used currently
+  * Plugin Options:
+    * https://github.com/wildlyinaccurate/jekyll-responsive-image
+    * Instructions here: https://ivovalchev.medium.com/jekyll-responsive-images-with-srcset-5da131415d0f
+  * Non-Plugin Options:
+    * [Responsive Images in Jekyll without a plugin](https://benseymour.com/2017/03/02/Responsive-Images-in-Jekyll-without-a-plugin)
+    * [Designing responsive image layouts with Jekyll](https://www.lizheidner.com/front-end/responsive-images/)
 
-<a id="plugins-staging--production"></a>
-#### Plugins Staging & Production
+* Fallback for Author gravatars
+* Convert `max-width: 767px` section in `_media.scss` to min-width
 
-* jekyll-include-cache
-* jekyll-feed
-* github-pages
-* jekyll-seo-tag
-* jekyll-redirect-from
-* jekyll-sitemap
-* jekyll-titles-from-headings
+<a id="gravatars-fallback"></a>
+### Gravatars Fallback
 
-<a id="plugins---local-dev"></a>
-#### Plugins - Local Dev
+Something like this, but in reverse/more nuanced:
 
-* jekyll-admin - useful for editing posts. Won't run on GH Pages
-* jekyll-include-cache
-* github-pages
-* jekyll-redirect-from
-* jekyll-titles-from-headings
+```html
+{% for author in site.authors %}
+{% if author.image and author.image != '/assets/images/no_gravatar.png' %}
+  <img src="{{ author.image }}" alt="Author thumbnail for {{ author.name }}" class="avatar avatar-48 grav-hased" height="48" width="48"></a></li>
+  {% elsif author.email %}
+    <script>
+      document.write('<li><a id="{{ author.gravatar_name }}" href="{{ site.url }}{{ site.baseurl }}{{ author.url }}">')
+      document.write('<img src="' + get_gravatar('{{ author.email }}', 48) + '" alt="Author thumbnail for {{ author.name }}" class="avatar avatar-48 grav-hased" height="48" width="48" /></a></li>');
+    </script>
 
-<a id="accessibility"></a>
-## Accessibility
+  {% endif %}        
+{% endfor%}
 
-1. Add ARIA Roles into HTML where necessary, across site
-    * Nav menu
+```
+<a id="replace-captions-and-shortcodes"></a>
+### Replace Captions and Shortcodes
 
-<a id="cleanup"></a>
-## Cleanup
-
-* Remove `archives.py` when it's 100% clear it's unnecessary
-  * Doublecheck that running `_plugins/luna_archives_generator.rb` manually is sufficient
-  * A Rakefile might be a good way to save the trouble of running it manually
-* Figure out what's necessary/relevant from the `defaults` settings in `_config.yml`
+1. Shortcodes need to be replaced with actual code wherever possible. See e.g. [here](http://localhost:4000/2012/11/27/wildlife-of-our-homes-q-a-with-rob-dunn/).
+  * `[caption]` covers 21 posts. I can't say for other shortcodes without manually looking through posts.
+  * `[youtube]` covers 8 posts
+  * `[polldaddy]`covers 1 posts
 
 <a id="scss-extranon-essential"></a>
 ### SCSS (extra/non-essential)
@@ -115,70 +92,3 @@ webmaster_verifications:
     * Using a base SCSS variable wherever possible
 2. Month Archives: 425px, 768px - would be nice to tweak the styles a bit, so the Archive Title doesn't split into the next line
 
-
-<a id="staging-and-production"></a>
-## Staging and Production
-
-<a id="optimization"></a>
-### Optimization
-
-<a id="images"></a>
-#### Images
-
-1. Figure out how to Lazy Load images for blog posts
-2. Compress images
-3. Find a way to generate and serve device-appropriate source-sets
-
-<a id="cdn---cloudflare"></a>
-#### CDN - Cloudflare
-
-* For performance reasons, I'd advise setting up the website with Cloudflare.
-    * This will allow for the use of absolute urls (helpful for SEO and general nav, imo) without a substantial performance hit.
-    * Currently when using absolute urls instead of relative urls, the difference is very noticeable
-* The main issue is the main page of the Blog.
-    * Other (not mutually exclusive) solutions may involve Lazy Loading images or adding post excerpts.
-
-<a id="seo--webmaster-tools"></a>
-### SEO & Webmaster Tools
-
-1. Verify with various Webmaster tools
-2. Test with Google's [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/)
-    * See [Google Developers - Understand how structured data works](https://developers.google.com/search/docs/guides/intro-structured-data)
-
-<a id="domain--subdomain-setup"></a>
-### Domain & Subdomain Setup
-
-1. Note that current website seems to prefer `www` over Apex domain.
-
-<a id="favicon"></a>
-### Favicon
-
-* Should be all set - but can run [Favicon Checker](https://realfavicongenerator.net/) another time, once the subdomain is set up
-
-<a id="contact-form"></a>
-### Contact Form
-
-* Double-check Contact Form just to be on the safe side
-
-<a id="notes"></a>
-## Notes
-
-<a id="captions-and-shortcodes"></a>
-### Captions and Shortcodes
-
-1. Shortcodes need to be replaced with actual code wherever possible. See [here](http://localhost:4000/2012/11/27/wildlife-of-our-homes-q-a-with-rob-dunn/) for an example.
-    * `[caption]` covers 21 posts. I can't say for other shortcodes without manually looking through posts.
-    * `[youtube]` covers 8 posts
-    * `[polldaddy]`covers 1 posts
-
-<a id="deprecated"></a>
-### Deprecated
-
-~~1. Reinstate the /updates.html et al links that go to [sign-up form](https://personalgenomes.us3.list-manage.com/subscribe?u=3980aaa2746fd428de44b2ab4&id=34d31b2d4b) and similar~~
-
-* ~~Setup JS redirect via layout or include or something~~
-* ~~use jekyll-redirect to do this possibly?~~
-* Not finding the where/what of this. It was a minor concern in the first place.
-
-
-[1]: docs/resources.md

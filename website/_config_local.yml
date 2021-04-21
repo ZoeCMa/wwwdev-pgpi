@@ -1,0 +1,11 @@
+url: "http://pgp.test"
+# baseurl: "/"
+port: 80
+plugins:
+  - jekyll-archives
+  - jekyll-include-cache
+  # - jekyll-feed
+  - jekyll-redirect-from
+  # - jekyll-seo-tag
+  # - jekyll-sitemap
+  - jekyll-titles-from-headings

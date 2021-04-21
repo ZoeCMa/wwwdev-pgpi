@@ -4,7 +4,7 @@ title: Archive
 class: archive
 ---
 
-<h1 class="archive-title">Archive for {{ page.date | date: "%Y" }}</h1>
+<h1 class="archive-title">Archive for {{ page.date | date: "%B %-d, %Y" }}</h1>
 <div class="entries">
   <ul class="entry-list">
   {% for post in page.posts %}
@@ -16,5 +16,4 @@ class: archive
     </li>
   {% endfor %}
   </ul>
-</div>
 <div class="dotted-border-img"></div>

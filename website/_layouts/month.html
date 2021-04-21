@@ -4,26 +4,16 @@ title: Archive
 class: archive
 ---
 
-<h1 class="archive-title">Archive for {{ page.month_name }} {{ page.year }}</h1>
+<h1 class="archive-title">Archive for {{ page.date | date: "%B %Y" }}</h1>
 <div class="entries">
   <ul class="entry-list">
-    {%- for post in site.posts -%}
-      {%- capture postmonth -%} {{ post.date | date: '%m%Y' }} {%- endcapture -%}
-      {%- capture pagemonth -%} {{ page.month }}{{ page.year }} {%- endcapture -%}
-      {%- comment -%}
-      <p>Page month: {{ pagemonth }}</p>
-      <p>Post month: {{ postmonth }}</p>
-      {%- endcomment -%}
-      {%- if postmonth contains pagemonth -%}
+  {% for post in page.posts %}
     <li>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-        <!-- <span class="comments_number">0</span> -->
         <time class="archdate">{{ post.date | date: "%b %-d, %Y" }}</time>
         <div class="category-entry-title">{{ post.title | escape}}</div>
       </a>
     </li>
-    {%- endif -%}
-    {%- endfor -%}
+  {% endfor %}
   </ul>
-</div><!--end entry-list-->
 <div class="dotted-border-img"></div>
