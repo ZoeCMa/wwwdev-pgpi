@@ -144,14 +144,14 @@ collections:
 
 jekyll-archives:
   enabled:
-    - year
-    - month
+    # - year
+    # - month
     - day
     - tag
   layout: archive
   layouts:
-    year: year
-    month: month
+    # year: year
+    # month: month
     day: day
     # category: category
     tag: tag

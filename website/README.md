@@ -7,9 +7,9 @@ This is the repo for the rewrite of the [PGP Global](https://www.personalgenomes
 * [Instructions and Documentation](#instructions-and-documentation)
 * [Issues](#issues)
 * [Nice to Have](#nice-to-have)
-  * [Gravatars Fallback](#gravatars-fallback)
-  * [Replace Captions and Shortcodes](#replace-captions-and-shortcodes)
-  * [SCSS \(extra/non-essential\)](#scss-extranon-essential)
+	* [Gravatars Fallback](#gravatars-fallback)
+	* [Replace Captions and Shortcodes](#replace-captions-and-shortcodes)
+	* [SCSS \(extra/non-essential\)](#scss-extranon-essential)
 
 <!-- /MarkdownTOC -->
 
@@ -25,21 +25,20 @@ See A current list of documentation files includes:
 <a id="issues"></a>
 ## Issues
 
-* Build time is horrendous, unless using `--limit_posts`
-  * This may be due to the archives plugin?
-* Swap archives plugin for `jekyll-archives`?
+* Redo archives plugin, based on newer code from Arvados version
+* Add Read More button to Blog Main Page
 * Finishing replacing relative URLs where relevant
   * See [CDN - Cloudflare](#cdn---cloudflare) regarding performance
-* Is Logo still distorted for Sarah (or anyone else)?
+* Blog logo issue
+* Homepage Logo issue?
   * Previous note: Seems to be a result of bootstrap's `margin-left: -15px; margin-right: -15px;` setting on `.row` classes
-* Blog page - performance is terrible. Needs either CDN, pagination, etc.
+* Blog page would seriously benefit from CDN!!
 * Add ARIA roles
 * Figure out what `defaults` can be removed from `_config.yml`
 * Double check: 
   * favicon w/ Real Favicon Generator (should be fine)
   * Contact Form
 * Verify site with Webmaster Tools, prior to launch
-* `jekyll-autoprefixer`? `scripts/prefixfree.js` may be taking care of this
 * Flickr API for Sidebar(?) - Is this still relevant?
 
 <a id="nice-to-have"></a>
