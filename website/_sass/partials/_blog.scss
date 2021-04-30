@@ -61,7 +61,8 @@
     display: block;
     font-size: 48px;
     height: 100%;
-    overflow: auto;
+    // overflow: auto;
+    overflow: visible;
     text-align: center;
     vertical-align: middle;
   }
@@ -69,6 +70,15 @@
   span {
     position: relative;
     top: 25%;
+  }
+
+  .sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
   }
 }
 
