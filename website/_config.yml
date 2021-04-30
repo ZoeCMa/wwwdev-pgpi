@@ -143,17 +143,21 @@ collections:
     output: false
 
 jekyll-archives:
-  enabled: 'all'
+  enabled:
+    - year
+    - month
+    - day
+    - tag
   layout: archive
   layouts:
     year: year
     month: month
     day: day
-    category: category
+    # category: category
     tag: tag
   permalinks:
     year: '/:year/'
     month: '/:year/:month/'
     day: '/:year/:month/:day/'
     tag: '/tag/:name/'
-    category: '/category/:name/'
+    # category: '/category/:name/'
