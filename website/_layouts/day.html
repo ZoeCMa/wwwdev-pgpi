@@ -4,16 +4,24 @@ title: Archive
 class: archive
 ---
 
-<h1 class="archive-title">Archive for {{ page.date | date: "%B %-d, %Y" }}</h1>
-<div class="entries">
+<!-- Day Archives Page Template -->
+<section class="entries">
+  {%- capture page_date -%} {{ page.month_name }} {{ page.day }}, {{ page.year }} {%- endcapture -%}
+  {% assign page_date = page_date | date: "%B %-d, %Y" %}
+
+  <h2 class="archive-title">Posts from {{ page_date }}</h2>
   <ul class="entry-list">
-  {% for post in page.posts %}
-    <li>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-        <time class="archdate">{{ post.date | date: "%b %-d, %Y" }}</time>
-        <div class="category-entry-title">{{ post.title | escape}}</div>
-      </a>
-    </li>
-  {% endfor %}
-  </ul>
-<div class="dotted-border-img"></div>
+    {%- for post in site.posts -%}
+      {%- assign post_day = post.date | date: "%B %-d, %Y" -%}
+      {% if post_day == page_date %}
+        <li>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+            <time class="archdate">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="category-entry-title">{{ post.title | escape }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {%- endfor -%}
+  </ul> <!--end entry-list-->
+  <div class="dotted-border-img"></div>
+</section>

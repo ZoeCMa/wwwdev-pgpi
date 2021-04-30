@@ -57,7 +57,7 @@ minima:
 markdown: kramdown
 theme: minima
 plugins:
-  - jekyll-archives
+  # - jekyll-archives
   - jekyll-include-cache
   - jekyll-feed
   - jekyll-redirect-from
@@ -141,23 +141,25 @@ collections:
     output: false
   social-links:
     output: false
+  blog_archives:
+    output: true
 
-jekyll-archives:
-  enabled:
-    # - year
-    # - month
-    - day
-    - tag
-  layout: archive
-  layouts:
-    # year: year
-    # month: month
-    day: day
-    # category: category
-    tag: tag
-  permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
-    # category: '/category/:name/'
+# jekyll-archives:
+#   enabled:
+#     # - year
+#     # - month
+#     - day
+#     - tag
+#   layout: archive
+#   layouts:
+#     # year: year
+#     # month: month
+#     day: day
+#     # category: category
+#     tag: tag
+#   permalinks:
+#     year: '/:year/'
+#     month: '/:year/:month/'
+#     day: '/:year/:month/:day/'
+#     tag: '/tag/:name/'
+#     # category: '/category/:name/'
