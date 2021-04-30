@@ -29,13 +29,13 @@
                       {%- elsif entry.url contains "http" or "http" contains entry.url -%}
                         <li><a href="{{ entry.url }}">{{ entry.page }}</a>
                       {%- else -%}
-                        <li><a href="{{ entry.url | absolute_url }}">1 {{ entry.page }}</a>
+                        <li><a href="{{ entry.url | absolute_url }}">{{ entry.page }}</a>
                       {%- endif -%}
 
                           {%- if entry.subfolderitems[0] -%}
                             <ul>
                             {%- for subentry in entry.subfolderitems %}
-                                <li><a href="{{ site.url }}{{ subentry.url }}">2 {{ subentry.page }}</a></li>
+                                <li><a href="{{ site.url }}{{ subentry.url }}">{{ subentry.page }}</a></li>
                             {%- endfor -%}
                             </ul>
                           {%- endif -%}
@@ -45,9 +45,9 @@
               </li>
                 {%- endif -%}
                 {%- elsif entry.url contains "http" or "http" contains entry.url -%}
-                <li><a href="{{ item.url }}">3 {{ item.title }}</a>
+                <li><a href="{{ item.url }}">{{ item.title }}</a>
                 {%- else -%}
-              <li><a href="{{ item.url | absolute_url }}">4 {{ item.title }}</a>
+              <li><a href="{{ item.url | absolute_url }}">{{ item.title }}</a>
             {%- endif -%}
           {%- endfor -%}
         {%- endif -%}
