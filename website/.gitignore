@@ -4,3 +4,6 @@ _scratch
 .jekyll-metadata
 .sass-cache
 _site
+.bundle
+.jekyll-cache
+vendor/bundle
