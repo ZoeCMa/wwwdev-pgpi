@@ -48,3 +48,5 @@ gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 gem "webrick", "~> 1.9"
 
 gem "rexml", "~> 3.4"
+
+gem "public_suffix", "~> 5.1.1"
