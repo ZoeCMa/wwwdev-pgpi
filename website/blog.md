@@ -14,19 +14,39 @@ permalink: /blog/
 
 <div class="meta clear">
   {%- if post.author -%}
-    {%- assign post_author = post.author | downcase -%}
-      {%- for author in site.authors -%}
-        {%- if author.name == post.author or author.name contains post.author -%}
-          {%- assign author_url = author.url -%}
-        {%- endif -%}
-      {%- endfor -%}
+    {%- if post.author.first -%}
+      {%- assign post_authors_list = post.author -%}
+    {%- else -%}
+      {%- assign post_authors_list = '' | split: "," -%}
+      {%- assign post_authors_list = post_authors_list | push: post.author -%}
+    {%- endif -%}
   <div class="author">
     <span class="by-author">
       <span class="sep">by</span>
-      <a class="url fn n author-url" title="View all posts by {{ post.author | escape }}" rel="author" href="{{ site.url }}{{ author_url | relative_url }}">{{ post.author | escape }}</a>
+    {%- for post_author in post_authors_list -%}
+      {%- assign post_author_cn = post_author | downcase -%}
+      {%- assign post_author_url = nil -%}
+      {%- for author in site.authors -%}
+        {%- assign author_cn = author.name | downcase -%}
+	      {%- if author_cn == post_author_cn or author_cn contains post_author_cn -%}
+          {%- assign post_author_url = author.url -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if post_authors_list.size == 2 -%}
+        {%- if forloop.last %} and {% endif -%}
+      {%- else -%}
+    {%- if forloop.first -%}{%- elsif forloop.last %}, and {% else %}, {% endif -%}
+      {%- endif -%}
+      {%- if post_author_url %}
+      <a class="url fn n author-url" title="View all posts by {{ post_author | escape }}" rel="author" href="{{ site.url }}{{ post_author_url | relative_url }}">{{ post_author | escape }}</a>
+      {%- else %}
+      <span class="url fn n author-url" rel="author">{{ post_author | escape }}</span>
+      {%- endif -%}
+    {%- endfor %}
     </span>
   </div>
-  {%- endif-%}
+  {%- endif %}
 </div>
 
 <p>{{ post.excerpt }}</p>
