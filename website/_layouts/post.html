@@ -13,13 +13,31 @@ class: blog
         {{ page.date | date: date_format }}
       </time>
     {%- if page.author -%}
-      {%- assign page_author = page.author | downcase -%}
+      {%- if page.author.first -%}
+        {%- assign page_authors_list = page.author -%}
+      {%- else -%}
+        {%- assign page_authors_list = '' | split: "," -%}
+        {%- assign page_authors_list = page_authors_list | push: page.author -%}
+      {%- endif -%}
+      <span class="author-list">
+      {%- for page_author in page_authors_list -%}
+        {%- assign page_author_cn = page_author | downcase -%}
+        {%- assign page_author_url = nil -%}
         {%- for author in site.authors -%}
-          {%- if author.name == page.author or author.name contains page.author -%}
-            {%- assign author_url = author.url -%}
+          {%- assign author_cn = author.name | downcase -%}
+          {%- if author_cn == page_author_cn or author_cn contains page_author_cn -%}
+            {%- assign page_author_url = author.url -%}
+            {%- break -%}
           {%- endif -%}
         {%- endfor -%}
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name"><a href="{{ author_url| relative_url }}">{{ page.author | escape }}</a></span></span>
+        {%- if page_authors_list.size == 2 -%}
+          {%- if forloop.last %} and {% endif -%}
+        {%- else -%}
+        {%- if forloop.first -%}{%- elsif forloop.last %}, and {% else %}, {% endif -%}
+        {%- endif -%}
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{%- if page_author_url -%}<a href="{{ page_author_url| relative_url }}">{{ page_author | escape }}</a>{%- else -%}{{ page_author | escape }}{%- endif -%}</span></span>
+      {%- endfor -%}
+      </span>
     {%- endif -%}
   </p>
   </header>
