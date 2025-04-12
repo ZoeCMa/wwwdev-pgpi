@@ -15,8 +15,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   traditional research practices. The PGP approach is to invite
   willing participants to publicly share their personal data for the greater good.
 
-url: "https://personalgenomes.org" # the base hostname & protocol for your site, e.g. http://example.com
-
 twitter_username: PGorg
 flickr_username: personalgenomes
 # github_username:  jekyll
