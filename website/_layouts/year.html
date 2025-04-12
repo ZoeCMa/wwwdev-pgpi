@@ -10,6 +10,7 @@ class: archive year
   <h2 class="archive-title">Posts from {{ pageYear }}</h2>
   <ul class="entry-list">
     {%- for post in site.posts -%}
+      {%- if post.hidden -%}{%- continue -%}{%- endif -%}
       {%- capture postYear -%} {{ post.date | date: '%Y' }} {%- endcapture -%}
       {% if postYear == pageYear %}
       <li>

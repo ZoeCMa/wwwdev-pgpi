@@ -6,7 +6,7 @@
 {% assign minCommonTags =  1 %}
 {% assign maxRelatedCounter = 0 %}
 
-{% assign posts = site.posts | where_exp:"post", "post.url != page.url" | sample: 20 %}
+{% assign posts = site.posts | where_exp:"post", "post.url != page.url and post.hidden != true" | sample: 20 %}
 {% for post in posts %}
 
   {% assign sameTagCount = 0 %}

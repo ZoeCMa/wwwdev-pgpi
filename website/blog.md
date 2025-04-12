@@ -6,6 +6,7 @@ permalink: /blog/
 ---
 
 {% for post in site.posts %}
+  {%- if post.hidden -%}{%- continue -%}{%- endif -%}
 <article>
   <div class="post-header">
     <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>

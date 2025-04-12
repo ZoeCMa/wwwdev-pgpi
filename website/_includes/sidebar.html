@@ -48,6 +48,7 @@
       {% assign maxPost = 5 %}
       {% assign counter = 0 %}
       {% for post in site.posts | sort:"date" | reverse %}
+        {%- if post.hidden -%}{%- continue -%}{%- endif -%}
       <li>
         <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
       </li>

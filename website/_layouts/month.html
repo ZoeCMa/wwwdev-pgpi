@@ -11,6 +11,7 @@ class: archive
   <h2 class="archive-title">Posts from {{ page_date }}</h2>
   <ul class="entry-list">
     {%- for post in site.posts -%}
+      {%- if post.hidden -%}{%- continue -%}{%- endif -%}
       {%- assign post_month = post.date | date: "%B %Y" -%}
       {% if post_month == page_date %}
         <li>

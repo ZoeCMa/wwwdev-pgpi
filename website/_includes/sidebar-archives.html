@@ -2,6 +2,7 @@
 {% assign currentMonth = site.time | date: "%B" %}
 
 {% for post in site.posts %}
+  {%- if post.hidden -%}{%- continue -%}{%- endif -%}
   {% assign postYear = post.date | date: "%Y" %}
   {% assign postMonth = post.date  | date: "%B" %}
   {% assign postMonthNum = post.date | date: "%m" %}
